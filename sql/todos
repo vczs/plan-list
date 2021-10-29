@@ -1,0 +1,7 @@
+CREATE TABLE `todos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+
