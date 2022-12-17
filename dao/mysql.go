@@ -1,6 +1,8 @@
 package dao
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -9,8 +11,16 @@ var (
 	DB *gorm.DB
 )
 
+const (
+	Host     = "127.0.0.1"
+	Port     = 3306
+	User     = "root"
+	PassWord = "123456"
+	DbName   = "todos"
+)
+
 func InitMySQL() (err error) {
-	dsn := "root:root@tcp(127.0.0.1:3306)/bubble?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", User, PassWord, Host, Port, DbName)
 	DB, err = gorm.Open("mysql", dsn)
 	if err != nil {
 		return err
